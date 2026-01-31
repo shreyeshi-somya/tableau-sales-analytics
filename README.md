@@ -81,6 +81,7 @@ This view separates **sales trends** and **profit margin trends** into two align
 
 ### 3️⃣ Sales by Region
 ![Sales by Region](images/sales-by-region.png)
+
 A regional comparison of total sales, colored by profit contribution:
 - West and East regions generate the highest revenue
 - Central and South regions lag in both sales and profitability
