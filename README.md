@@ -1,6 +1,9 @@
 # tableau-sales-analytics
 
-# 📊 Sales Performance & Profitability Dashboard (Tableau)
+## 📊 Sales Performance & Profitability Dashboard (Tableau)
+**[View Full Interactive Dashboard on Tableau Public](https://public.tableau.com/app/profile/shreyeshi.somya/viz/SalesPerformanceDashboard_17698490359220/Dashboard1)**
+
+
 
 ![Dashboard Overview](images/dashboard-overview.png)
 
