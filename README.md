@@ -127,7 +127,7 @@ The return rate is visualized as a monthly time series:
 ## Technical Approach
 
 ### Tools
-- **Tableau** for visualization and dashboard design
+- **Tableau Public** - Data visualization and dashboard creation
 
 ### Calculated Metrics
 - **Profit Margin (%)**  
