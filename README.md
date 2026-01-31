@@ -155,4 +155,4 @@ The return rate is visualized as a monthly time series:
 
 ---
 
-## Repository Structure
+**Created by [Shreyeshi Somya] | [LinkedIn](https://www.linkedin.com/in/sshreyeshi/)**
