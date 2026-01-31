@@ -130,7 +130,7 @@ The return rate is visualized as a monthly time series:
 - **Profit Margin (%)**  
   `SUM(Profit) / SUM(Sales)`
 - **Return Rate (%)**  
-  Calculated as returned orders relative to total orders
+  Calculated as returned orders relative to total orders `COUNTD([Order ID (Returns)]) / COUNTD([Order ID])`
 
 ### Tableau Concepts Used
 - Horizontal and vertical containers
