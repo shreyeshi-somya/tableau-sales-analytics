@@ -3,15 +3,13 @@
 ## 📊 Sales Performance & Profitability Dashboard (Tableau)
 **[View Full Interactive Dashboard on Tableau Public](https://public.tableau.com/app/profile/shreyeshi.somya/viz/SalesPerformanceDashboard_17698490359220/Dashboard1)**
 
-
-
 ![Dashboard Overview](images/dashboard-overview.png)
 
 ## Overview
 This project presents an interactive Tableau dashboard designed to analyze **sales performance, profitability, and return behavior over time**.  
 The analysis focuses on understanding not just *how much* revenue is generated, but **how margin quality and returns evolve across categories, regions, and time periods**.
 
-The dashboard is built with a **business stakeholder mindset**, emphasizing clarity, comparability, and flexibility through interactive filtering.
+The dashboard is built with a **business stakeholder mindset**, emphasizing clarity, comparability, and flexibility through interactive filtering and advanced analytics.
 
 ---
 
@@ -23,6 +21,7 @@ This analysis answers the following key questions:
 - How does **regional sales performance** compare when profitability is considered?
 - Are **return rate spikes associated with margin compression**?
 - How do these trends **change across different time windows**?
+- What **percentage of total sales** does each region contribute?
 
 ---
 
@@ -31,8 +30,25 @@ This analysis answers the following key questions:
 - **Total Profit**
 - **Profit Margin (%)**
 - **Return Rate (%)**
+- **% of Total Sales by Region** (LOD calculation)
 
 All metrics are calculated using aggregated values to ensure accurate financial interpretation.
+
+---
+
+## Advanced Features
+
+### Interactive Dashboard Actions
+- **Click-to-filter functionality:** Selecting a region in the "Sales by Region" chart dynamically filters all other visualizations
+- Enables drill-down analysis without cluttering the interface
+- Provides contextual exploration - click any region to see its specific performance across all metrics
+- Clicking away resets the view to show all regions
+
+### LOD (Level of Detail) Expressions
+- Calculated **percentage of total sales by region** using FIXED LOD expression
+- Formula: `SUM([Sales]) / SUM({ FIXED : SUM([Sales]) })`
+- Demonstrates understanding of advanced Tableau calculations that operate across different aggregation levels
+- Shows each region's contribution to company-wide performance regardless of filters
 
 ---
 
@@ -82,14 +98,22 @@ This view separates **sales trends** and **profit margin trends** into two align
 
 ---
 
-### 3️⃣ Sales by Region
+### 3️⃣ Sales by Region (Interactive)
 ![Sales by Region](images/sales-by-region.png)
 
 A regional comparison of total sales, colored by profit contribution:
 - West and East regions generate the highest revenue
 - Central and South regions lag in both sales and profitability
+- **Each bar displays percentage of total sales** using LOD calculation:
+  - West: 32% of total sales
+  - East: 30% of total sales
+  - Central: 22% of total sales
+  - South: 17% of total sales
 
-📌 **Insight:** Revenue concentration does not necessarily imply margin efficiency, reinforcing the importance of profit-adjusted regional analysis.
+**Interactive Feature:**  
+Click on any region bar to filter all other visualizations to that region's data. This enables focused analysis of regional performance across categories, time periods, and return rates.
+
+📌 **Insight:** Revenue concentration does not necessarily imply margin efficiency. The West region contributes nearly one-third of total sales but South region shows lower profitability despite generating 17% of revenue.
 
 ---
 
@@ -130,15 +154,29 @@ The return rate is visualized as a monthly time series:
 - **Tableau Public** - Data visualization and dashboard creation
 
 ### Calculated Metrics
-- **Profit Margin (%)**  
-  `SUM(Profit) / SUM(Sales)`
-- **Return Rate (%)**  
-  Calculated as returned orders relative to total orders `COUNTD([Order ID (Returns)]) / COUNTD([Order ID])`
+
+**Profit Margin (%)**  
+```
+SUM([Profit]) / SUM([Sales])
+```
+
+**Return Rate (%)**  
+```
+COUNTD([Order ID (Returns)]) / COUNTD([Order ID])
+```
+
+**% of Total Sales (LOD Expression)**  
+```
+SUM([Sales]) / SUM({ FIXED : SUM([Sales]) })
+```
+This FIXED LOD expression calculates each region's percentage contribution to total company sales, operating at a different aggregation level than the view's dimensions.
 
 ### Tableau Concepts Used
 - Horizontal and vertical containers
 - KPI tiles with custom alignment
 - Global date filtering across worksheets
+- **Dashboard actions for interactive filtering**
+- **LOD (Level of Detail) expressions for advanced calculations**
 - Small multiples for category comparison
 - Reference lines scoped **per pane**
 - Diverging color scales centered on meaningful benchmarks
@@ -150,9 +188,23 @@ The return rate is visualized as a monthly time series:
 - Avoided dual-axis charts to reduce cognitive load
 - Used small multiples instead of filters for category comparison
 - Applied a **single global date filter** to maintain metric consistency
+- Implemented **click-to-filter interactions** for intuitive exploration
 - Centered color scales at zero or average values
 - Prioritized business readability over visual density
+- Used **LOD expressions** to show contextual metrics (% of total) alongside raw values
 
 ---
 
-**Created by [Shreyeshi Somya] | [LinkedIn](https://www.linkedin.com/in/sshreyeshi/)**
+## 🛠️ Skills Demonstrated
+- Interactive dashboard design with user-driven filtering
+- Advanced calculations using LOD expressions
+- Data relationship modeling (Orders, Returns, People tables)
+- Business metric development (profit margin, return rate)
+- Time-series analysis with reference lines
+- Regional and categorical performance comparison
+- Visual hierarchy and layout optimization
+- Actionable insight generation from complex data
+
+---
+
+**Created by Shreyeshi Somya** | [LinkedIn](your-linkedin-url)
